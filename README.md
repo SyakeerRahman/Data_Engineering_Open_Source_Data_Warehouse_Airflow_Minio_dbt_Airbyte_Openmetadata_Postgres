@@ -92,31 +92,31 @@ Enter a valid email when trying to log in.
 1. Open Airflow
 2. Go to connections
 3. Create the Minio S3 connection with the below configuration: If you test this connection it will fail, just ignore it.
-Connection Type: Amazon Web Services
-Connection Id: aws_default
-Extra: {"aws_access_key_id": "minio_admin", "aws_secret_access_key": "minio_password", "endpoint_url": "http://host.docker.internal:9000"}
+  - Connection Type: Amazon Web Services
+  - Connection Id: aws_default
+  - Extra: {"aws_access_key_id": "minio_admin", "aws_secret_access_key": "minio_password", "endpoint_url": "http://host.docker.internal:9000"}
 4. Create the Postgres connection
-Connection Type: Postgres
-Connection Id: postgres_default
-Host: postgres_dwh
-Schema: dwh
-Login: dwh
-Password: dwh
-Port: 5432
+  - Connection Type: Postgres
+  - Connection Id: postgres_default
+  - Host: postgres_dwh
+  - Schema: dwh
+  - Login: dwh
+  - Password: dwh
+  - Port: 5432
 5. Create the Airbyte connection (Optional, in case you want to use the stack for your own development)
-Connection Type: Airbyte
-Connection Id: airbyte_default
-Host: host.docker.internal
-Username: airbyte
-Password: password
-Port: 8000
+  - Connection Type: Airbyte
+  - Connection Id: airbyte_default
+  - Host: host.docker.internal
+  - Username: airbyte
+  - Password: password
+  - Port: 8000
 
 ## Airbyte Configuration
 
-Open Airbyte, enter an email and select Get started
-Select sources (left sidebar) , in the search bar write S3 and select it
-Create the S3 connection for customer data
-Source_name: S3_customer_information_cdc
+1. Open Airbyte, enter an email and select Get started
+2. Select sources (left sidebar) , in the search bar write S3 and select it
+3. Create the S3 connection for customer data
+  - Source_name: S3_customer_information_cdc
 Output_stream_name: daily_customer_information_cdc
 Pattern_of_files_to_replicate: customer/*.csv
 Bucket: raw
