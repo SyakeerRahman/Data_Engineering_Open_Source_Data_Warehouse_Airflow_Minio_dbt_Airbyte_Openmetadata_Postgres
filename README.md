@@ -1,5 +1,8 @@
 # Data_Engineering_Open_Source_Data_Warehouse_Airflow_Minio_dbt_Airbyte_Openmetadata_Postgres
 
+<img width="5448" height="2212" alt="image" src="https://github.com/user-attachments/assets/987bf7d8-be40-4614-a5a5-0dfd0df02a18" />
+
+
 Open Source Data Pipeline Data Engineering Project 
 
 - [X] Postgres
