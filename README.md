@@ -1,6 +1,6 @@
 # Data_Engineering_Open_Source_Data_Warehouse_Airflow_Minio_dbt_Airbyte_Openmetadata_Postgres
 
-Open Source Data Pipeline Data Engineering Project | Data Pipeline using Postgres, Airflow, Minio, dbt, Airbyte
+Open Source Data Pipeline Data Engineering Project | Data Pipeline using Postgres, Airflow, Minio, dbt, Airbyte, Openmetadata
 
 I want to share my latest Data Engineering project where I put my skills to the test by working with an Open Source Stack
 
@@ -8,22 +8,22 @@ I want to share my latest Data Engineering project where I put my skills to the 
 
 You have two requirements from different areas of the bank.
 
-The Marketing area needs to have updated customer data to be able to contact them and make offers.
-The Finance area requires to have daily loan transactions complemented with customer drivers to be able to analyze them and improve the revenue.
-To fulfill with the request, we are going to perform incremental loads and also using techniques like upsert.
+> The Marketing area needs to have updated customer data to be able to contact them and make offers.
+> The Finance area requires to have daily loan transactions complemented with customer drivers to be able to analyze them and improve the revenue. To fulfill with the request, we are going to perform incremental loads and also using techniques like upsert.
 
-💾 𝗗𝗮𝘁𝗮 𝗦𝗼𝘂𝗿𝗰𝗲:
+💾 𝗗𝗮𝘁𝗮 𝗦𝗼𝘂𝗿𝗰𝗲: CSV file
 
 🎯 𝗣𝗿𝗼𝗷𝗲𝗰𝘁 𝗚𝗼𝗮𝗹𝘀:
 
-Extract data using airbyre
+Extract data using airbyte from CSV to Minio
 Store the raw data into an Minio
 Transform the data using dbt
-Load the transformed data into Minio
+Load the transformed data into Postgres (DWH)
+Save the metadata using Openmetadata
 
 🔧The tools that are covered in this project are:
 
-Airbyte: data extraction - http://localhost:56174/
+Airbyte: data extraction - http://localhost:3000/
 Dbt: data transformation
 Airflow: task orchestration - http://localhost:8085/
 PostgreSQL: data storage
@@ -33,11 +33,11 @@ Minio: object storage - http://localhost:9090/
 
 ## Prerequisites
 
-Docker Desktop
-Docker compose
-Windows 10 or higher (This project hasn't been tested on MacOS or Linux)
-Python 3.6 or higher
-Recommended 8GB RAM or higher only for docker containers.
+[X] Docker Desktop
+[X] Docker compose
+[X] Windows 10 or higher (This project hasn't been tested on MacOS or Linux)
+[X] Python 3.6 or higher
+[X] Recommended 8GB RAM or higher only for docker containers.
 
 ## Credentials
 
