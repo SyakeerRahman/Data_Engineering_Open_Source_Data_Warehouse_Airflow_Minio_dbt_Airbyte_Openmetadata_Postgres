@@ -48,35 +48,36 @@ Recommended 8GB RAM or higher only for docker containers.
 ### Minio
 Minio acces and secret keys along with url_endpoint are used to log in and for connections.
 
-minio_access_key: minio_admin
-minio_secret_key: minio_password
-url_endpoint: http://host.docker.internal:9000
-port: 9000
+- minio_access_key: minio_admin
+- minio_secret_key: minio_password
+- url_endpoint: http://host.docker.internal:9000
+- port: 9000
 
 ### Postgres DWH
-username: dwh
-password: dwh
-external_host: local_host
-external_port: 5455
-internal_host: postgres_dwh
-interal_port: 5432 If you connect to your database through Mysql or DBeaver, you need to use the external host and port.
+- username: dwh
+- password: dwh
+- external_host: local_host
+- external_port: 5455
+- internal_host: postgres_dwh
+- interal_port: 5432 If you connect to your database through Mysql or DBeaver, you need to use the external host and port.
 
 ### Airbyte
 Enter a valid email when trying to log in.
 
-For other configurations:
-internal_host: host.docker.internal
-internal_host_and_port: http://host.docker.internal:8000
-user: airbyte
-password: password
+- For other configurations:
+- internal_host: host.docker.internal
+- internal_host_and_port: http://host.docker.internal:8000
+- user: airbyte
+- password: password
 
 ### Openmetadata
-username: admin
-password: admin
+
+- username: admin
+- password: admin
 
 ## Setup Instructions
 
-1.Open your terminal.
+1. Open your terminal.
 2. Navigate to the root of the os-data-stack repository
 3. Run docker compose up --build to initialize the containers. If you want to run it in the background, add -d argument.
 4. Perform Airflow configurations (Section below)
