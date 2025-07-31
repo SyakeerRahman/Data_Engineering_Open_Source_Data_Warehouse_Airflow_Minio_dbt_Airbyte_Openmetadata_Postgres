@@ -9,35 +9,36 @@ I want to share my latest Data Engineering project where I put my skills to the 
 You have two requirements from different areas of the bank.
 
 > The Marketing area needs to have updated customer data to be able to contact them and make offers.
+
 > The Finance area requires to have daily loan transactions complemented with customer drivers to be able to analyze them and improve the revenue. To fulfill with the request, we are going to perform incremental loads and also using techniques like upsert.
 
 💾 𝗗𝗮𝘁𝗮 𝗦𝗼𝘂𝗿𝗰𝗲: CSV file
 
 🎯 𝗣𝗿𝗼𝗷𝗲𝗰𝘁 𝗚𝗼𝗮𝗹𝘀:
 
-Extract data using airbyte from CSV to Minio
-Store the raw data into an Minio
-Transform the data using dbt
-Load the transformed data into Postgres (DWH)
-Save the metadata using Openmetadata
+- Extract data using airbyte from CSV to Minio
+- Store the raw data into an Minio
+- Transform the data using dbt
+- Load the transformed data into Postgres (DWH)
+- Save the metadata using Openmetadata
 
 🔧The tools that are covered in this project are:
 
-Airbyte: data extraction - http://localhost:3000/
-Dbt: data transformation
-Airflow: task orchestration - http://localhost:8085/
-PostgreSQL: data storage
-Openmetadata: data catalog - http://localhost:8585/
-Minio: object storage - http://localhost:9090/
+- Airbyte: data extraction - http://localhost:3000/
+- Dbt: data transformation
+- Airflow: task orchestration - http://localhost:8085/
+- PostgreSQL: data storage
+- Openmetadata: data catalog - http://localhost:8585/
+- Minio: object storage - http://localhost:9090/
 
 
 ## Prerequisites
 
-[X] Docker Desktop
-[X] Docker compose
-[X] Windows 10 or higher (This project hasn't been tested on MacOS or Linux)
-[X] Python 3.6 or higher
-[X] Recommended 8GB RAM or higher only for docker containers.
+- [X] Docker Desktop
+- [X] Docker compose
+- [X] Windows 10 or higher (This project hasn't been tested on MacOS or Linux)
+- [X] Python 3.6 or higher
+- [X] Recommended 8GB RAM or higher only for docker containers.
 
 ## Credentials
 
@@ -78,13 +79,14 @@ Enter a valid email when trying to log in.
 ## Setup Instructions
 
 1. Open your terminal.
-2. Navigate to the root of the os-data-stack repository
+2. Navigate to the root of the os-data-stack repository.
+- 
 3. Run docker compose up --build to initialize the containers. If you want to run it in the background, add -d argument.
-4. Perform Airflow configurations (Section below)
+4. Perform Airflow configurations **(Section below)**
 5. Run the Airflow DAG called upload_data_to_s3 for uploading csv files into minio s3 bucket.
-6. Perform Airbyte configurations (Section below)
+6. Perform Airbyte configurations **(Section below)**
 7. Run the Airflow DAG called dbt_model to create the tables in the bronze, silver, and gold schemas.
-8. Perform Openmetadata configurations. (Section below)
+8. Perform Openmetadata configurations. **(Section below)**
 9. Play around all the technologies.
 
 ## Airflow Configuration
