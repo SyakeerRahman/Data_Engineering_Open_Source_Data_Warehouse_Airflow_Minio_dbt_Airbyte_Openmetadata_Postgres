@@ -1,8 +1,13 @@
 # Data_Engineering_Open_Source_Data_Warehouse_Airflow_Minio_dbt_Airbyte_Openmetadata_Postgres
 
-Open Source Data Pipeline Data Engineering Project | Data Pipeline using Postgres, Airflow, Minio, dbt, Airbyte, Openmetadata
+Open Source Data Pipeline Data Engineering Project 
 
-I want to share my latest Data Engineering project where I put my skills to the test by working with an Open Source Stack
+- [X] Postgres
+- [X] Airflow
+- [X] Minio
+- [X] DBT
+- [X] Airbyte
+- [X] Openmetadata
 
 🔬𝗣𝗿𝗼𝗷𝗲𝗰𝘁 𝗢𝘃𝗲𝗿𝘃𝗶𝗲𝘄: We will be working with transactional data referred to loan transactions and customers from GeekBankPE (a famous bank around the world).
 
@@ -39,7 +44,8 @@ You have two requirements from different areas of the bank.
 - [X] Windows 10 or higher (This project hasn't been tested on MacOS or Linux)
 - [X] Python 3.6 or higher
 - [X] Recommended 8GB RAM or higher only for docker containers.
-
+- [] services.msc -> stop all port related usage (Mysql and so on)
+  
 ## Credentials
 
 ### Airflow
