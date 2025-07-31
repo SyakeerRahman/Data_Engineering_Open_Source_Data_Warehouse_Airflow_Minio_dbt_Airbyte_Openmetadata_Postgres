@@ -42,13 +42,13 @@ Recommended 8GB RAM or higher only for docker containers.
 ## Credentials
 
 ### Airflow
-- username: airflow
-- password: airflow
+- username: "airflow"
+- password: 'airflow'
 
 ### Minio
 Minio acces and secret keys along with url_endpoint are used to log in and for connections.
 
-- minio_access_key: minio_admin
+- minio_access_key: <minio_admin>
 - minio_secret_key: minio_password
 - url_endpoint: http://host.docker.internal:9000
 - port: 9000
