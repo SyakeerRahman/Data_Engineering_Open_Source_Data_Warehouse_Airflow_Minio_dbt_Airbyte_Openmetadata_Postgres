@@ -117,54 +117,54 @@ Enter a valid email when trying to log in.
 2. Select sources (left sidebar) , in the search bar write S3 and select it
 3. Create the S3 connection for customer data
   - Source_name: S3_customer_information_cdc
-Output_stream_name: daily_customer_information_cdc
-Pattern_of_files_to_replicate: customer/*.csv
-Bucket: raw
-Aws_access_key_id: minio_admin
-Aws_secret_access_key: minio_password
-Path_prefix: customer/
-Endpoint: http://host.docker.internal:9000
-Scroll until the end and select set up source
-Create the S3 connection for customer driver data
-Source_name: S3_daily_customer_drivers
-Output_stream_name: daily_customer_drivers
-Pattern_of_files_to_replicate: customerDrivers/*.csv
-Bucket: raw
-Aws_access_key_id: minio_admin
-Aws_secret_access_key: minio_password
-Path_prefix: customerDrivers/
-Endpoint: http://host.docker.internal:9000
-Scroll until the end and select set up source
-Create the S3 connection for loan transactions data
-Source_name: S3_daily_loan_transactions
-Output_stream_name: daily_loan_transactions
-Pattern_of_files_to_replicate: transactions/*.csv
-Bucket: raw
-Aws_access_key_id: minio_admin
-Aws_secret_access_key: minio_password
-Path_prefix: transactions/
-Endpoint: http://host.docker.internal:9000
-Scroll until the end and select set up source
-Select Destinations (left sidebar), search for Postgres and select it.
-Create the Postgres connection as destination
-Destination_name: Postgres_DWH
-Host: localhost
-Port: 5455
-Db_name: dwh
-Default_Schema: airbyte
-user: dwh
-password: dwh
-Scroll until the end and select set up destination
-Select Connections (left sidebar)
-Select the S3_customer_information_cdc source
-Select Use existing destination
-In the destination tab select Postgres_DWH and select Use existing destination
-In the new screen view, change the Replication frequency to Manual
-Sync mode should be Full refresh overwrite (2023-05-01 - Incremental sync mode isn't working, data gets duplicated when using it, maybe because the Postgres connector is in Alpha)
-Select set up connection
-Repeat the same process for S3_daily_customer_drivers and S3_daily_loan_transactions sources.
-After setting up the connections, select Connections (left side bar) and click on Sync now for your 3 connections.
-Wait until the syncronization finished.
+- Output_stream_name: daily_customer_information_cdc
+- Pattern_of_files_to_replicate: customer/*.csv
+- Bucket: raw
+- Aws_access_key_id: minio_admin
+- Aws_secret_access_key: minio_password
+- Path_prefix: customer/
+- Endpoint: http://host.docker.internal:9000
+- Scroll until the end and select set up source
+4. Create the S3 connection for customer driver data
+- Source_name: S3_daily_customer_drivers
+- Output_stream_name: daily_customer_drivers
+- Pattern_of_files_to_replicate: customerDrivers/*.csv
+- Bucket: raw
+- Aws_access_key_id: minio_admin
+- Aws_secret_access_key: minio_password
+- Path_prefix: customerDrivers/
+- Endpoint: http://host.docker.internal:9000
+- Scroll until the end and select set up source
+5. Create the S3 connection for loan transactions data
+- Source_name: S3_daily_loan_transactions
+- Output_stream_name: daily_loan_transactions
+- Pattern_of_files_to_replicate: transactions/*.csv
+- Bucket: raw
+- Aws_access_key_id: minio_admin
+- Aws_secret_access_key: minio_password
+- Path_prefix: transactions/
+- Endpoint: http://host.docker.internal:9000
+- Scroll until the end and select set up source
+6. Select Destinations (left sidebar), search for Postgres and select it.
+7. Create the Postgres connection as destination
+- Destination_name: Postgres_DWH
+- Host: localhost
+- Port: 5455
+- Db_name: dwh
+- Default_Schema: airbyte
+- user: dwh
+- password: dwh
+- Scroll until the end and select set up destination
+8. Select Connections (left sidebar)
+- Select the S3_customer_information_cdc source
+- Select Use existing destination
+- In the destination tab select Postgres_DWH and select Use existing destination
+- In the new screen view, change the Replication frequency to Manual
+- Sync mode should be Full refresh overwrite (2023-05-01 - Incremental sync mode isn't working, data gets duplicated when using it, maybe because the Postgres connector is - in Alpha)
+- Select set up connection
+- Repeat the same process for S3_daily_customer_drivers and S3_daily_loan_transactions sources.
+- After setting up the connections, select Connections (left side bar) and click on Sync now for your 3 connections.
+- Wait until the syncronization finished.
 
 ## Openmetadata Configurations
 
