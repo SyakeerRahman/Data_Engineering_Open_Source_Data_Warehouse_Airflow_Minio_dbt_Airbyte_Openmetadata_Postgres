@@ -116,44 +116,44 @@ Enter a valid email when trying to log in.
 1. Open Airbyte, enter an email and select Get started
 2. Select sources (left sidebar) , in the search bar write S3 and select it
 3. Create the S3 connection for customer data
-  - Source_name: S3_customer_information_cdc
-- Output_stream_name: daily_customer_information_cdc
-- Pattern_of_files_to_replicate: customer/*.csv
-- Bucket: raw
-- Aws_access_key_id: minio_admin
-- Aws_secret_access_key: minio_password
-- Path_prefix: customer/
-- Endpoint: http://host.docker.internal:9000
+- Source_name: `S3_customer_information_cdc`
+- Output_stream_name: `daily_customer_information_cdc`
+- Pattern_of_files_to_replicate: `customer/*.csv`
+- Bucket: `raw`
+- Aws_access_key_id: `minio_admin`
+- Aws_secret_access_key: `minio_password`
+- Path_prefix: `customer/`
+- Endpoint: `http://host.docker.internal:9000`
 - Scroll until the end and select set up source
 4. Create the S3 connection for customer driver data
-- Source_name: S3_daily_customer_drivers
-- Output_stream_name: daily_customer_drivers
-- Pattern_of_files_to_replicate: customerDrivers/*.csv
-- Bucket: raw
-- Aws_access_key_id: minio_admin
-- Aws_secret_access_key: minio_password
-- Path_prefix: customerDrivers/
-- Endpoint: http://host.docker.internal:9000
+- Source_name: `S3_daily_customer_drivers`
+- Output_stream_name: `daily_customer_drivers`
+- Pattern_of_files_to_replicate: `customerDrivers/*.csv`
+- Bucket: `raw`
+- Aws_access_key_id: `minio_admin`
+- Aws_secret_access_key: `minio_password`
+- Path_prefix: `customerDrivers/`
+- Endpoint: `http://host.docker.internal:9000`
 - Scroll until the end and select set up source
 5. Create the S3 connection for loan transactions data
-- Source_name: S3_daily_loan_transactions
-- Output_stream_name: daily_loan_transactions
-- Pattern_of_files_to_replicate: transactions/*.csv
-- Bucket: raw
-- Aws_access_key_id: minio_admin
-- Aws_secret_access_key: minio_password
-- Path_prefix: transactions/
-- Endpoint: http://host.docker.internal:9000
+- Source_name: `S3_daily_loan_transactions`
+- Output_stream_name: `daily_loan_transactions`
+- Pattern_of_files_to_replicate:  `transactions/*.csv`
+- Bucket: `raw`
+- Aws_access_key_id: `minio_admin`
+- Aws_secret_access_key: `minio_password`
+- Path_prefix: `transactions/`
+- Endpoint: `http://host.docker.internal:9000`
 - Scroll until the end and select set up source
 6. Select Destinations (left sidebar), search for Postgres and select it.
 7. Create the Postgres connection as destination
-- Destination_name: Postgres_DWH
-- Host: localhost
-- Port: 5455
-- Db_name: dwh
-- Default_Schema: airbyte
-- user: dwh
-- password: dwh
+- Destination_name: `Postgres_DWH`
+- Host: `localhost`
+- Port: `5455`
+- Db_name: `dwh`
+- Default_Schema: `airbyte`
+- user: `dwh`
+- password: `dwh`
 - Scroll until the end and select set up destination
 8. Select Connections (left sidebar)
 - Select the S3_customer_information_cdc source
@@ -168,90 +168,92 @@ Enter a valid email when trying to log in.
 
 ## Openmetadata Configurations
 
-Database Services - Postgres
-Open openmetadata, enter your credentials
-username: admin
-password: admin
-Select Services in the left sidebar.
-Select Add New Service in the right top corner.
-Create the Postgres database service.
-Select Database Services.
-Select the Postgres connector and select Next
-Enter postgres_con as service name and select Next
-Fill out the fields for the connection:
-Username: dwh
-Password: dwh
-Host_and_Port: postgres_dwh
-Database: dwh
-Test your connection and select save
-Select your connection.
-Select the tab called Ingestions
-Create a metadata ingestion by selecting the Add ingestion purple button on the right Mandatory
-Enable Use FQN For Filtering
-Enable Include Views
-Select Next
-Schedule interval, select None, which means Manual.
-Finally select Add & Deploy and then View Service
-Run the metadata ingestion.
-Create a DBT Ingestion Mandatory (For our example)
-dbt_Configuration_Source: S3_Config_Source
-AWS_Access_Key_ID: minio_admin
-AWS_Secret_Access_Key: minio_password
-AWS_Region: us-east-1
-Endpoint_URL: http://host.docker.internal:9000
-dbt_Bucket_Name: dbt
-dbt_Object_Prefix: dwh
-Select Next, choose a Manual schedule interval.
-Run the DBT ingestion
-Create Lineage Ingestion Optional
-Create a Profiler Ingestion Optional
-Recommended to filter schema and target only: bronze,silver,gold
-Recommended to play with the value of Profile Sample Type
-Create a Usage Ingestion Optional
-Pipeline Services - Airflow
-Select Services in the left sidebar.
-Select Add New Service in the right top corner.
-Select Pipeline Services from the drop down list.
-Select Airflow and then Next
-Enter a name for your service connection and select Next
-Enter the below configuration:
-Host_and_Port: http://localhost:8085/
-Metadata_Database_Connection: PostgresConnection
-Username: airflow
-Password: airflow
-Host_and_Port: host.docker.internal:5432
-Database: airflow
-Test your connection and save.
-Navigate to your airflow service connection and create a metadata ingestion.
-Run the metadata ingestion.
-Pipeline Services - Airbyte
-Select Services in the left sidebar.
-Select Add New Service in the right top corner.
-Select Pipeline Services from the drop down list.
-Select Airbyte and then Next
-Enter a name for your service connection and select Next
-Enter the below configuration:
-Host_and_Port: http://host.docker.internal:8000
-Metadata_Database_Connection: PostgresConnection
-Username: airbyte
-Password: password
-Test your connection and save.
-Navigate to your airflow service connection and create a metadata ingestion.
-Run the metadata ingestion.
+### Database Services - Postgres
+1. Open openmetadata, enter your credentials
+- username: `admin`
+- password: `admin`
+2. Select Services in the left sidebar.
+3. Select Add New Service in the right top corner.
+4. Create the Postgres database service.
+- Select Database Services.
+- Select the Postgres connector and select Next
+- Enter postgres_con as service name and select Next
+- Fill out the fields for the connection:
+    - Username: `dwh`
+    - Password: `dwh`
+    - Host_and_Port: `postgres_dwh`
+    - Database: `dwh`
+- Test your connection and select save
+5. Select your connection.
+6. Select the tab called Ingestions
+7. Create a metadata ingestion by selecting the Add ingestion purple button on the right Mandatory
+- Enable Use FQN For Filtering
+- Enable Include Views
+- Select Next
+- Schedule interval, select None, which means Manual.
+- Finally select Add & Deploy and then View Service
+- Run the metadata ingestion.
+8. Create a DBT Ingestion Mandatory (For our example)
+- dbt_Configuration_Source: `S3_Config_Source`
+- AWS_Access_Key_ID: `minio_admin`
+- AWS_Secret_Access_Key: `minio_password`
+- AWS_Region: `us-east-1`
+- Endpoint_URL: `http://host.docker.internal:9000`
+- dbt_Bucket_Name: `dbt`
+- dbt_Object_Prefix: `dwh`
+- Select Next, choose a Manual schedule interval.
+- Run the DBT ingestion
+9. Create Lineage Ingestion Optional
+10. Create a Profiler Ingestion Optional
+- Recommended to filter schema and target only: bronze,silver,gold
+- Recommended to play with the value of Profile Sample Type
+11. Create a Usage Ingestion Optional
+  
+### Pipeline Services - Airflow
+1. Select Services in the left sidebar.
+2. Select Add New Service in the right top corner.
+3. Select Pipeline Services from the drop down list.
+4. Select Airflow and then Next
+5. Enter a name for your service connection and select Next
+6. Enter the below configuration:
+- Host_and_Port: `http://localhost:8085/`
+- Metadata_Database_Connection: `PostgresConnection`
+- Username: `airflow`
+- Password: `airflow`
+- Host_and_Port: `host.docker.internal:5432`
+- Database: `airflow`
+7. Test your connection and save.
+8. Navigate to your airflow service connection and create a metadata ingestion.
+9. Run the metadata ingestion.
+
+### Pipeline Services - Airbyte
+1. Select Services in the left sidebar.
+2. Select Add New Service in the right top corner.
+3. Select Pipeline Services from the drop down list.
+4. Select Airbyte and then Next
+5. Enter a name for your service connection and select Next
+6. Enter the below configuration:
+- Host_and_Port: `http://host.docker.internal:8000`
+- Metadata_Database_Connection: `PostgresConnection`
+- Username: `airbyte`
+- Password: `password`
+7. Test your connection and save.
+8. Navigate to your airflow service connection and create a metadata ingestion.
+9. Run the metadata ingestion.
 
 ## How to run DBT alone
 
-Navigate to the root of the dbt directory
-Install a python virtual environment by running:
-Windows: python -m venv env
-Activate your environment by running:
-Windows: env/scripts/activate
-Run the below command to install dbt:
-Windows: pip install dbt-postgres==1.4.6
-Navigate to the dwh project by running:
-cd dwh
-Now you are able to run dbt commands, follow example below:
-dbt build --profiles-dir "../" --target prod_localhost --vars '{ target_date: 2022-09-12 }' --select gold
-dbt test --profiles-dir "../" --target prod_localhost --vars '{ target_date: 2022-09-12 }' --select gold Note: Some of the tasks will be marked as ERROR when running a DBT command because data is already loaded.
+1. Navigate to the root of the dbt directory
+2. Install a python virtual environment by running:
+- Windows: `python -m venv env`
+3. Activate your environment by running:
+- Windows: `env/scripts/activate`
+4. Run the below command to install dbt:
+- Windows: `pip install dbt-postgres==1.4.6`
+5. Navigate to the dwh project by running:
+- cd `dwh`
+6. Now you are able to run dbt commands, follow example below:
+- `dbt build --profiles-dir "../" --target prod_localhost --vars '{ target_date: 2022-09-12 }' --select gold`
+- `dbt test --profiles-dir "../" --target prod_localhost --vars '{ target_date: 2022-09-12 }' --select gold Note: Some of the tasks will be marked as ERROR when running a DBT command because data is already loaded.`
 
 
